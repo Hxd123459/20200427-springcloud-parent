@@ -43,4 +43,9 @@ public class AllBookController {
     String tFloadLeve(){
         return iBookService.tFloadLeve();
     }
+
+    @GetMapping("/testProperties")
+    List<Book> testProperties(){
+        return iBookService.testProperties();
+    }
 }

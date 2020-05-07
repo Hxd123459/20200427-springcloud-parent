@@ -41,6 +41,11 @@ public class FallBackService implements FallbackFactory<IBookService> {
                 System.out.println("我是8084，我被降级了");
                return "服务器繁忙，请稍后重试！";
             }
+
+            public List<Book> testProperties() {
+                System.out.println("我是测试分布式配置中心的，我是他的后备方法");
+                return null;
+            }
         };
         return iBookService;
     }

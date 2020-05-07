@@ -49,4 +49,11 @@ public interface IBookService {
      */
     @GetMapping("/tFloadLeve")
     String tFloadLeve();
+
+    /**
+     * 测试分布式配置中心
+     * @return
+     */
+    @GetMapping("/testProperties")
+    List<Book> testProperties();
 }

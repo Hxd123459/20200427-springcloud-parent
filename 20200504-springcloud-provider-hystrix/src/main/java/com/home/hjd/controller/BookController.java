@@ -50,10 +50,16 @@ public class BookController {
         }
         return books;
     }
+
+    /**
+     * 测试降级
+     * @return
+     */
     @GetMapping("/tFloadLeve")
     String tFloadLeve(){
         System.out.println("我是8084，我正常工作");
         return "我是8084，我正常工作";
     }
+
 
 }

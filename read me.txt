@@ -1,0 +1,25 @@
+springcloud实现最基础的RPC功能(消费者调用生产者):
+    1.创建父级项目:pom(只对jar包做管理，没有其他功能)
+        20200427-springcloud-parent
+    2.创建消费者项目和生产者项目
+        20200427-springcloud-consumer
+        20200427-springcloud-provider
+        consumer需要去调用provider的数据
+        也就是说consumer只会和客户端打交道，里面并没有其他的东西
+        但是provider只会和数据库打交道，部署在内网，给consumer提供数据支持
+    3.需要一个封装和管理的项目
+        20200427-springcloud-management
+            -- 20200427-springcloud-mapper
+            -- 20200427-springcloud-model
+            -- 20200427-springcloud-service
+
+    4.实现项目的层级依赖
+        20200427-springcloud-model只需要存放实体类，不需要任何的依赖
+        20200427-springcloud-mapper需要依赖于model项目
+        20200427-springcloud-service需要依赖于mapper项目
+        20200427-springcloud-provider需要依赖于哪个项目？
+            需要依赖于service，service又依赖了mapper
+            mapper又依赖了model
+            也就是说provider就间接的依赖了mapper和model
+         20200427-springcloud-consumer需要依赖于哪个项目？
+            只需要依赖于model，因为需要返回实体类型
